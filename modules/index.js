@@ -1,25 +1,27 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+/**
+ * @file main module
+ */
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 
-import configRouter from '../src/route/index'
-import App from '../src/component/App.vue'
-import Index from '../src/component/Index.vue'
+import configRouter from '../src/route/index';
+import App from '../src/App.vue';
 
-// 暴露vue到全局作用下，browser sync
-window.Vue = Vue
-
-Vue.config.debug = true
-// 使用vue view插件
-Vue.use(VueRouter)
+// open Vue to windows
+window.Vue = Vue;
 
 
-// 路由相关
+Vue.config.debug = true;
+
+// use vue router
+Vue.use(VueRouter);
+
+
+// router
 // create router
-var router = new VueRouter({
-    history: true,
-    saveScrollPosition: true
-})
+let router = new VueRouter({
+});
 
 // configure router
 
@@ -27,7 +29,7 @@ configRouter(router);
 
 
 // boostrap the app
-router.start(Vue.extend({App}), '#root')
+router.start(Vue.extend({App}), '#root');
 // just for debugging
-window.router = router
+window.router = router;
 

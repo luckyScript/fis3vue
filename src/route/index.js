@@ -1,23 +1,25 @@
-import App from '../component/App.vue';
-import Index from '../component/Index.vue';
-import NotFound from '../component/NotFound.vue'
+/**
+ * @file router config
+ */
+import App from '../App.vue';
+import One from '../page/One.vue';
+import Two from '../page/Two.vue';
 
-export default function configRouter (router) {
+export default function configRouter(router) {
     router.map({
         '/': {
             component: App,
-            title: '首页',
             subRoutes: {
-                '/index': {
-                    component: Index
+                '/one': {
+                    component: One
+                },
+                '/two': {
+                    component: Two
                 }
             }
-        },
-        '*': {
-            component: NotFound
         }
     });
     router.redirect({
-        '/': '/index',
+        '/': '/one'
     });
 }
